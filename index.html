@@ -635,7 +635,7 @@
             </div>
 
             <div class="flex flex-col gap-8 fade-up">
-                <!-- 1. Unified Awards List (UPDATED WITH REALISTIC MEDALS) -->
+                <!-- 1. Unified Awards List (Realistic Medals & Center Alignment) -->
                 <div>
                     <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
                         <i data-lucide="award" class="text-blue-600"></i> Awards History
@@ -645,22 +645,22 @@
                         <div class="divide-y divide-slate-100">
                             
                             <!-- Company Award 1 -->
-                            <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group">
-                                <div class="flex-shrink-0 pt-1 w-12 text-center">
+                            <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-blue-600 text-lg">2024</span>
                                 </div>
                                 <div class="flex-grow z-10">
                                     <div class="flex items-center gap-2 mb-2">
                                         <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-700 border border-blue-200">Company</span>
-                                        <h4 class="font-bold text-slate-900 text-lg leading-none">웅진 핵심 인재상 수상</h4>
+                                        <h4 class="font-bold text-slate-900 leading-none">웅진 핵심 인재상 수상</h4>
                                     </div>
                                     <p class="text-sm text-slate-600 leading-relaxed">
                                         그룹웨어·전자결재 고도화 및 신규 서비스 도입을 주도하며, <strong>조직의 디지털 전환을 이끄는 핵심 개발자</strong>로 인정받았습니다.
                                         기술 역량뿐 아니라, 문제를 끝까지 책임지고 풀어내는 실행력과 조직 기여도가 높은 평가를 받았습니다.
                                     </p>
                                 </div>
-                                <!-- Trophy SVG -->
-                                <div class="flex-shrink-0 pt-1 relative transform group-hover:scale-110 transition-transform duration-300">
+                                <!-- [Center Alignment Fix] w-16 for fixed width, justify-center for horizontal center -->
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));">
                                         <defs>
                                             <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -682,22 +682,21 @@
                             </div>
 
                             <!-- Company Award 2 -->
-                            <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group">
-                                <div class="flex-shrink-0 pt-1 w-12 text-center">
+                            <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-blue-600 text-lg">2024</span>
                                 </div>
                                 <div class="flex-grow z-10">
                                     <div class="flex items-center gap-2 mb-2">
                                          <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-700 border border-blue-200">Company</span>
-                                        <h4 class="font-bold text-slate-900 text-lg leading-none">웅진 프로젝트 매니저상 수상</h4>
+                                        <h4 class="font-bold text-slate-900 leading-none">웅진 프로젝트 매니저상 수상</h4>
                                     </div>
                                     <p class="text-sm text-slate-600 leading-relaxed">
                                         복잡한 이해관계와 까다로운 일정 속에서도 <strong>요구사항 정의 → 설계 → 개발 → 오픈</strong>까지 전 과정을 리딩하며
                                         품질과 일정, 두 마리 토끼를 모두 잡은 점을 높게 인정받았습니다. 개발자이면서도 PM의 시야로 프로젝트를 운영할 수 있는 역량을 입증했습니다.
                                     </p>
                                 </div>
-                                <!-- Trophy SVG -->
-                                <div class="flex-shrink-0 pt-1 relative transform group-hover:scale-110 transition-transform duration-300">
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));">
                                         <defs>
                                             <linearGradient id="trophyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -715,14 +714,14 @@
                             </div>
 
                             <!-- Boxing Award 1 (Gold Medal - Realistic) -->
-                            <div class="p-6 flex gap-5 hover:bg-yellow-50/30 transition-colors keep-together relative group">
-                                <div class="flex-shrink-0 pt-1 w-12 text-center">
+                            <div class="p-6 flex gap-5 hover:bg-yellow-50/30 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-amber-600 text-lg">2023</span>
                                 </div>
                                 <div class="flex-grow z-10">
                                     <div class="flex items-center gap-2 mb-2">
                                         <span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">Boxing</span>
-                                        <h4 class="font-bold text-slate-900 text-lg leading-none">서울시대표 선발전 금상</h4>
+                                        <h4 class="font-bold text-slate-900 leading-none">서울시대표 선발전 1등</h4>
                                     </div>
                                     <p class="text-sm text-slate-600 leading-relaxed">
                                         한 번의 경기로 끝나는 승부가 아니라, <strong>오랜 기간의 준비와 체계적인 자기관리</strong>가 쌓여 만들어낸 결과입니다.
@@ -731,7 +730,7 @@
                                 </div>
                                 
                                 <!-- Realistic Gold Medal SVG -->
-                                <div class="flex-shrink-0 pt-1 medal-shine transform group-hover:scale-110 transition-transform duration-300">
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                         <defs>
                                             <!-- Gold Gradient -->
@@ -767,14 +766,14 @@
                             </div>
 
                             <!-- Boxing Award 2 (Silver Medal - Realistic) -->
-                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group">
-                                <div class="flex-shrink-0 pt-1 w-12 text-center">
+                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-slate-500 text-lg">2022</span>
                                 </div>
                                 <div class="flex-grow z-10">
                                     <div class="flex items-center gap-2 mb-2">
                                         <span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Boxing</span>
-                                        <h4 class="font-bold text-slate-900 text-lg leading-none">서울시대표 선발전 은상</h4>
+                                        <h4 class="font-bold text-slate-900 leading-none">서울시대표 선발전 2등</h4>
                                     </div>
                                     <p class="text-sm text-slate-600 leading-relaxed">
                                         승리와 패배를 모두 경험하며, <strong>데이터처럼 냉정하게 스스로를 분석하고 개선 포인트를 찾아가는 습관</strong>을 갖게 되었습니다.
@@ -783,7 +782,7 @@
                                 </div>
                                 
                                 <!-- Realistic Silver Medal SVG -->
-                                <div class="flex-shrink-0 pt-1 medal-shine transform group-hover:scale-110 transition-transform duration-300">
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                         <defs>
                                             <!-- Silver Gradient -->
@@ -818,14 +817,14 @@
                             </div>
                             
                             <!-- Boxing Award 3 (Silver Medal - Realistic) -->
-                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group">
-                                <div class="flex-shrink-0 pt-1 w-12 text-center">
+                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-slate-500 text-lg">2019</span>
                                 </div>
                                 <div class="flex-grow z-10">
                                     <div class="flex items-center gap-2 mb-2">
                                         <span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Boxing</span>
-                                        <h4 class="font-bold text-slate-900 text-lg leading-none">전국우승권 은상</h4>
+                                        <h4 class="font-bold text-slate-900 leading-none">전국우승권 2등</h4>
                                     </div>
                                     <p class="text-sm text-slate-600 leading-relaxed">
                                         매일 반복되는 고된 훈련을 소화하며 요행이 아닌 <strong>땀과 노력의 가치</strong>를 배웠습니다.
@@ -835,7 +834,7 @@
                                 </div>
                                 
                                  <!-- Realistic Silver Medal SVG -->
-                                 <div class="flex-shrink-0 pt-1 medal-shine transform group-hover:scale-110 transition-transform duration-300">
+                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                          <defs>
                                             <linearGradient id="silverBody2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -861,22 +860,23 @@
                             </div>
 
                             <!-- Boxing Award 4 (Silver Medal - Realistic) -->
-                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group">
-                                <div class="flex-shrink-0 pt-1 w-12 text-center">
+                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-slate-500 text-lg">2015</span>
                                 </div>
                                 <div class="flex-grow z-10">
                                     <div class="flex items-center gap-2 mb-2">
                                          <span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Boxing</span>
-                                        <h4 class="font-bold text-slate-900 text-lg leading-none">서울신인선수권 은상</h4>
+                                        <h4 class="font-bold text-slate-900 leading-none">서울신인선수권 2등</h4>
                                     </div>
                                     <p class="text-sm text-slate-600 leading-relaxed">
-                                        QA 실무와 고강도 훈련을 병행하며 <strong>업무와 개인 목표를 균형 있게 완수하는 자기 통제력</strong>을 입증했습니다.
-                                        정해진 일정 내에 최적의 퍼포먼스를 내야 하는 개발 환경에서도 <strong>흔들림 없는 일정 관리 능력</strong>을 발휘하겠습니다.
+                                        QA 업무에서 가장 중요한 <strong>치밀함</strong>은 편안할 때가 아닌, 극한의 상황에서 비로소 증명된다는 것을 배웠습니다.
+                                        숨이 턱 끝까지 차오르는 훈련 속에서도 <strong>정확성을 잃지 않으려는 노력</strong>은,
+                                        복잡한 로직 속에서도 <strong>끝까지 결함을 추적해내는 개발자의 집요함</strong>으로 이어졌습니다.
                                     </p>
                                 </div>
                                  <!-- Realistic Silver Medal SVG -->
-                                 <div class="flex-shrink-0 pt-1 medal-shine transform group-hover:scale-110 transition-transform duration-300">
+                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                          <defs>
                                             <linearGradient id="silverBody3" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -928,11 +928,3 @@
                 <p class="text-sm">끝까지 읽어주셔서 감사합니다. <br>최고의 퍼포먼스로 보답하겠습니다</p>
             </div>
         </section>
-
-    </div>
-    
-    <script>
-        lucide.createIcons();
-    </script>
-</body>
-</html>
