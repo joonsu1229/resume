@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개서 - 이준수</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* ==========================================================================
+           [1] 기본 스타일 (화면 및 공통)
+           ========================================================================== */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #525659;
+            color: #1f2937;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            word-break: keep-all;
+            margin: 0;
+            padding: 0;
+        }
+        .resume-container {
+            max-width: 210mm;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 50px; 
+            min-height: 297mm;
+            box-sizing: border-box;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #111827;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            margin-top: 40px;
+            page-break-after: avoid;
+        }
+        .section-header i { font-size: 1.5rem; color: #2563eb; margin-right: 12px; }
+        .section-title { font-size: 1.5rem; font-weight: 800; color: #111827; letter-spacing: -0.02em; }
+
+        .intro-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .intro-main-text { font-size: 1rem; color: #374151; margin-bottom: 1.5rem; line-height: 1.7; font-weight: 500; text-align: justify; }
+        .intro-sub-title { font-weight: 700; color: #111827; font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; }
+        .intro-sub-title i { margin-right: 0.5rem; color: #2563eb; font-size: 0.8rem; }
+        .intro-list { list-style: none; margin-left: 0; margin-bottom: 1.5rem; }
+        .intro-list li { position: relative; padding-left: 1rem; margin-bottom: 0.3rem; font-size: 0.9rem; color: #4b5563; }
+        .intro-list li::before { content: "•"; position: absolute; left: 0; color: #9ca3af; }
+
+        .skill-group-title { font-size: 1rem; font-weight: 700; color: #111827; margin-bottom: 0.75rem; }
+        .skill-badge { display: inline-block; padding: 0.25rem 0.6rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 600; margin-right: 0.3rem; margin-bottom: 0.4rem; border: 1px solid transparent; }
+        .badge-blue { background-color: #eff6ff; color: #1e40af; border-color: #dbeafe; }
+        .badge-purple { background-color: #f3e8ff; color: #7e22ce; border-color: #e9d5ff; }
+        .badge-orange { background-color: #fff7ed; color: #c2410c; border-color: #ffedd5; }
+        .badge-gray { background-color: #f9fafb; color: #374151; border-color: #e5e7eb; }
+        .skill-list { list-style: disc inside; margin-left: 0.5rem; font-size: 0.85rem; color: #4b5563; margin-top: 0.5rem; line-height: 1.6; }
+        .skill-list li { margin-bottom: 0.2rem; }
+
+        .exp-timeline { border-left: 2px solid #e5e7eb; padding-left: 2rem; margin-left: 0.5rem; position: relative; }
+        .exp-dot { position: absolute; left: -0.6rem; top: 0.3rem; width: 1rem; height: 1rem; background-color: white; border: 3px solid #3b82f6; border-radius: 50%; }
+        .exp-company { font-size: 1.25rem; font-weight: 800; color: #111827; margin-bottom: 0.2rem; }
+        .exp-period { float: right; font-size: 0.9rem; color: #2563eb; font-weight: 600; }
+        .exp-role { font-size: 0.95rem; color: #4b5563; font-weight: 600; margin-bottom: 1rem; }
+        .exp-card { background-color: #ffffff; border: 1px solid #f3f4f6; border-radius: 0.5rem; padding: 1rem; margin-bottom: 0.8rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .exp-card-title { font-weight: 700; font-size: 0.9rem; color: #1f2937; margin-bottom: 0.3rem; display: block; }
+        .exp-list { list-style: disc inside; font-size: 0.85rem; color: #6b7280; margin-left: 0.5rem; line-height: 1.5; }
+
+        .project-grid { display: grid; grid-template-columns: 130px 1fr; gap: 20px; margin-bottom: 25px; border-bottom: 1px dashed #e5e7eb; padding-bottom: 25px; }
+        .project-grid:last-child { border-bottom: none; }
+        .project-date { font-size: 0.85rem; color: #6b7280; font-weight: 700; text-align: right; padding-top: 4px; white-space: nowrap; }
+        .project-title { font-size: 1.1rem; font-weight: 700; color: #1e40af; }
+        .project-badges .badge { font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; margin-right: 4px; font-weight: 600; }
+
+        .custom-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .custom-table th { text-align: left; padding: 10px; background: #f9fafb; border-bottom: 2px solid #e5e7eb; font-weight: 700; color: #374151; }
+        .custom-table td { padding: 10px; border-bottom: 1px solid #f3f4f6; color: #4b5563; }
+        .custom-table tr:last-child td { border-bottom: none; }
+
+        /* 표지(Cover Page) 스타일 */
+        .cover-page { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; /* 상단 정렬로 변경 */
+            align-items: center; 
+            min-height: 950px; 
+            text-align: center; 
+            border-bottom: 1px dashed #ddd; 
+            margin-bottom: 50px; 
+            position: relative; 
+            padding-top: 80px; /* 사진 시작 위치 고정 */
+        }
+        
+        /* 지원 회사 정보 (상단 라인 일치 및 디자인 강화) */
+        .target-submission { 
+            position: absolute; 
+            top: 80px; /* 증명사진 padding-top과 일치시켜 상단 라인 고정 */
+            right: 0; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            min-width: 240px;
+            align-items: center;
+            text-align: center;
+        }
+        .target-badge {
+            font-size: 0.65rem;
+            font-weight: 900;
+            color: #3b82f6;
+            background: #eff6ff;
+            padding: 3px 12px;
+            border-radius: 6px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            border: 1px solid #dbeafe;
+        }
+        .target-main-row {
+            display: flex;
+            flex-direction: column; /* 세로 배치로 조금 더 깔끔하게 */
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+        .target-logo-icon { 
+            width: 48px; 
+            height: 48px; 
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+        .target-logo-icon img { width: 28px; height: 28px; object-fit: contain; }
+        
+        .target-company-name { 
+            font-size: 1.4rem; 
+            font-weight: 900; 
+            color: #1e3a8a;
+            letter-spacing: -0.03em;
+            word-break: keep-all;
+        }
+        .target-divider {
+            width: 40px;
+            height: 3px;
+            background: #2563eb;
+            margin: 12px 0;
+            border-radius: 2px;
+        }
+        .target-footer-text {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .cover-photo-box { width: 160px; height: 210px; overflow: hidden; border-radius: 16px; border: 1px solid #e5e7eb; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); margin-bottom: 2.5rem; background-color: #f3f4f6; }
+        .cover-photo-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+        .cover-name { font-size: 2.8rem; font-weight: 900; color: #111827; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+        .cover-title { font-size: 2rem; font-weight: 800; color: #2563eb; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+        .cover-role-main { font-size: 1.3rem; font-weight: 700; color: #374151; margin-bottom: 0.8rem; }
+        .cover-role-sub { font-size: 1.1rem; font-weight: 500; color: #6b7280; margin-bottom: 3rem; display: flex; flex-direction: column; gap: 0.3rem; }
+        
+        .tech-stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; width: 100%; max-width: 800px; margin-bottom: 3rem; }
+        .tech-card { background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem 1.5rem; text-align: left; display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+        .tech-card i { font-size: 1.5rem; color: #2563eb; margin-right: 1rem; width: 24px; text-align: center; }
+        .tech-card-content { display: flex; flex-direction: column; }
+        .tech-label { font-size: 0.75rem; color: #6b7280; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+        .tech-value { font-size: 1rem; font-weight: 700; color: #374151; }
+        .contact-info { display: flex; gap: 3rem; justify-content: center; padding: 1.5rem 0; border-top: 1px solid #f3f4f6; width: 80%; }
+        .contact-item { display: flex; align-items: center; gap: 0.6rem; font-size: 1.1rem; color: #374151; font-weight: 500; }
+
+        .thank-you-footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px double #e5e7eb;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        @keyframes shine {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+        .medal-shine:hover {
+            animation: shine 2s infinite ease-in-out;
+        }
+
+        /* ==========================================================================
+           [2] 인쇄(PDF) 최적화
+           ========================================================================== */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .resume-container { 
+                width: 210mm;
+                max-width: 210mm;
+                min-height: auto;
+                margin: 0 auto; 
+                padding: 30mm 20mm 20mm 20mm !important; 
+                box-shadow: none;
+                border: none;
+            }
+            
+            .print-hide { display: none; }
+
+            .cover-page { 
+                height: 260mm !important; 
+                page-break-after: always;
+                justify-content: flex-start;
+                margin-bottom: 0;
+                border-bottom: none;
+                padding-top: 50px !important;
+            }
+
+            /* 회사 정보 출력 시 위치 고정 */
+            .target-submission { 
+                top: 50px !important; 
+                box-shadow: none !important; 
+                border: 1px solid #e2e8f0 !important; 
+            }
+
+            .force-page-start {
+                page-break-before: always !important;
+                break-before: page !important;
+                margin-top: 0 !important;
+                padding-top: 50px !important; 
+            }
+
+            section {
+                margin-bottom: 40px !important;
+            }
+
+            .intro-box, .exp-card, .project-grid, .tech-card, .contact-info, 
+            tr, .keep-together { 
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .section-header {
+                page-break-after: avoid;
+                break-after: avoid;
+                margin-top: 0;
+            }
+
+            a { text-decoration: none; color: inherit; }
+            .resume-container, .cover-photo-box, .intro-box, .exp-card {
+                box-shadow: none !important;
+                border: 1px solid #e5e7eb;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <!-- ================= PAGE 1 : Cover ================= -->
+        <div class="cover-page">
+            <!-- [신규 프리미엄 커스텀 디자인 - 상단 라인 일치 적용] -->
+            <div class="target-submission">
+                <span class="target-badge">Recruitment 2026</span>
+                <div class="target-main-row">
+                    <div class="target-logo-icon">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACPklEQVR4AbyTA6weWxRG1z7n/M+2ET+2DWpbURs3Th2nCms3bsOaMWsrKKLatt3+mDlfeyepeTF3JRvDvQYnJJ2WqYKnhKciTxlPUYEShawvZf2jUIFiVrPgAYGiqqKQHS8rZFUyKh9VuNToMtf+ucLtP25T/PY+8YMKFlLwPEegDnnweZnDXU9wtvk59GGC+Yh5gQnHq3HUEYebXWLdiJ2caH6BNAgJeBwZOQlELzb3PsXOnqcpB6HUUDSoChkZyklADlb1Os+Rv28TU4ceRzSkLPJ9Axtb3+Donw+eDk+erQaPJV4PgRpy/NcyO/67jyUOgPh4kAnMY14oChNvJHjv/6wAokAAEoTDY0TEe1lO8SREQtFl9ebnMSzpcHdzTNxPBpjARYgACDOQj8i7YwQ/yyVs5X1/ToWUD3ieYKu6naSafDfvSB/j0fAETIalBsGyPsNI8Rr7YxNN3GQdkzr/BKrQD3MoZsMxX9VHXExBmUi/ox2bzj3K2/FUk59nHPg6scJ0ZA4ZxMfLziFVhS0426vhKN6RQDUpuQ+bKpWXGYaQgZmQE6Qu+oRRVAOjmnw1/eRQjGnPXywwwNh+bfCfTakGgWrjvicKAPEYAxPAboB8BeSCYuRlDHPuXu4CMQWi8SokyF2AxKHXTLJo+QskpYC9RkBWDwKqeMTryf8NlN/DiLwK4fIXiCWPvWaQqJdPEIiv+wmtHgRi4oGHG8go+MuECGj6OwDseVCtR3HNgmgTDjAYdcCoA0YdAABMbxrDLO8I2QAAAABJRU5ErkJggg==" alt="Logo">
+                    </div>
+                    <div class="target-company-name">
+                        [TMAP MOBILITY]
+                    </div>
+                </div>
+                <div class="target-divider"></div>
+                <div class="target-footer-text">사내 시스템 기획/관리 담당자</div>
+            </div>
+
+            <div class="cover-photo-box">
+                <img src="img/photo.jpg" alt="이준수" onerror="this.src='https://via.placeholder.com/160x210?text=Photo'">
+            </div>
+
+            <h2 class="cover-name">이준수</h2>
+            <h1 class="cover-title">Full-Stack Groupware Developer</h1>
+            
+            <div class="mb-8">
+                <p class="cover-role-main">Groupware Expert & Enterprise ERP Integration Specialist</p>
+                <div class="cover-role-sub">
+                    <span>Approval System Developer</span>
+                    <span>AI Engineering Support</span>
+                </div>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card">
+                    <i class="fas fa-server"></i>
+                    <div class="tech-card-content"><span class="tech-label">Backend</span><span class="tech-value">Java / Spring Boot</span></div>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <div class="tech-card-content"><span class="tech-label">Frontend</span><span class="tech-value">Vue.js / JavaScript / Jquery</span></div>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-robot"></i>
+                    <div class="tech-card-content"><span class="tech-label">AI Tech</span><span class="tech-value">Vector Search / RAG</span></div>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-cloud"></i>
+                    <div class="tech-card-content"><span class="tech-label">Cloud Ops</span><span class="tech-value">AWS / NCP (SaaS)</span></div>
+                </div>
+            </div>
+
+            <div class="contact-info flex flex-col gap-2 mt-6">
+                <div class="flex justify-center gap-6">
+                    <a href="mailto:joonsu1229@naver.com" target="_blank" 
+                       class="contact-item flex items-center gap-2 text-slate-700 hover:text-blue-600 transition">
+                        <i class="fas fa-envelope text-blue-600"></i>
+                        <span class="underline">joonsu1229@naver.com</span>
+                    </a>
+                    <a href="http://portfolio.jscareer.kro.kr/" target="_blank" 
+                       class="contact-item flex items-center gap-2 text-slate-700 hover:text-blue-600 transition">
+                        <i class="fas fa-id-card text-blue-600"></i>
+                        <span class="underline">portfolio.jscareer.kro.kr</span>
+                    </a>
+                </div>
+                <div class="flex justify-center gap-6">
+                    <a href="https://github.com/joonsu1229" target="_blank" 
+                       class="contact-item flex items-center gap-2 text-slate-700 hover:text-blue-600 transition">
+                        <i class="fab fa-github text-slate-800"></i>
+                        <span class="underline">github.com/joonsu1229</span>
+                    </a>
+                    <a href="https://itarchives.tistory.com/" target="_blank" 
+                       class="contact-item flex items-center gap-2 text-slate-700 hover:text-blue-600 transition">
+                        <i class="fas fa-book-open text-blue-600"></i>
+                        <span class="underline">itarchives.tistory.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ================= PAGE 2 START : Self Intro ================= -->
+        <section class="force-page-start">
+            <div class="section-header" style="margin-top: 0;"> 
+                <i class="fas fa-user-tie"></i>
+                <h2 class="section-title">Self Introduction</h2>
+            </div>
+            <div class="intro-box">
+				<div class="mb-6">
+					<p class="intro-main-text mb-3">
+						<span class="text-lg font-bold text-blue-700 block mb-2">"그룹웨어 역량과 PM 마인드를 갖춘 준비된 티맵모빌리티 인재"</span>
+						HR, 전자결재, 근태 관리 등 기업 핵심 시스템을 설계하고 <strong>SAP·더존·WHR 등 다양한 ERP 연동 아키텍처</strong>를 구축해 왔습니다. 복잡한 비즈니스 로직을 안정적인 시스템으로 구현하고 데이터 정합성을 유지하는 기술적 역량을 보유하고 있습니다.
+					</p>
+					<p class="intro-main-text mb-3">
+						<strong>실무 기반의 기술 활용과 서비스 관리:</strong> QA 시절부터 다져온 분석력을 바탕으로 장애 원인을 찾아내고 서비스 품질을 관리하는 데 익숙합니다. <strong>NAVER Cloud와 AWS 기반의 SaaS 운영</strong>을 수행해 왔으며, 최근에는 <strong>생성형 AI(RAG, Vector Search) 기술을 실무에 접목</strong>하여 업무 자동화 시스템을 고도화하는 경험을 쌓았습니다.
+					</p>
+					<p class="intro-main-text">
+						<strong>티맵모빌리티와 함께 성장할 준비된 인재:</strong> 프로젝트 과정에서 현장의 이슈를 해결하며 성과를 인정받아 사내 <strong>‘핵심 인재상’과 ‘프로젝트 매니저상’을 수상</strong>했습니다. 비록 공식적인 PM 역할은 아직 부족할 수 있으나, 수많은 프로젝트를 수행하며 여러 PM과 긴밀히 협업하여 일정 관리와 리스크 대응 등 관리 프로세스를 현장에서 깊이 있게 경험했습니다. 이러한 개발자로서의 기술적 기반과 PM 협업 경험을 살려, 개발과 관리를 모두 아우르는 좋은 개발자이자 PM이 되고자 티맵모빌리티에 지원했습니다.
+					</p>
+				</div>
+
+                <div class="bg-white rounded-xl p-5 border border-blue-100 shadow-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                        <div>
+                            <h4 class="intro-sub-title text-blue-800 border-b border-blue-50 pb-1 mb-2">
+                                <i class="fas fa-sitemap"></i>HR & 전자결재 프레임워크
+                            </h4>
+                            <ul class="intro-list space-y-1">
+                                <li><span class="font-semibold text-slate-700">HR 로직 설계:</span> 주 52시간제, 유연 근무제, 복합 휴가 관리 등</li>
+                                <li><span class="font-semibold text-slate-700">전자결재 코어:</span> 프로세스 엔진 최적화 및 커스터마이징</li>
+                                <li><span class="font-semibold text-slate-700">대용량 처리:</span> 근태/휴가 데이터 검증 및 정합성 보장</li>
+                                <li><span class="font-semibold text-slate-700">UI/UX 고도화:</span> 폼디자이너 개선 및 복잡한 문서 템플릿 구현</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="intro-sub-title text-blue-800 border-b border-blue-50 pb-1 mb-2">
+                                <i class="fas fa-network-wired"></i>시스템 연동 & 아키텍처
+                            </h4>
+                            <ul class="intro-list space-y-1">
+                                <li><span class="font-semibold text-slate-700">ERP 통합:</span> SAP(RFC/JCO), 더존, WHR 등 레거시 연동</li>
+                                <li><span class="font-semibold text-slate-700">SSO & 보안:</span> OAuth2/JWT 기반 통합 인증 체계 구축</li>
+                                <li><span class="font-semibold text-slate-700">API Gateway:</span> 네이버웍스 등 외부 서비스 연동 설계</li>
+                                <li><span class="font-semibold text-slate-700">실시간 시스템:</span> WebSocket/RabbitMQ 기반 알림/메시징</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PAGE 3 START : Skills & Certifications ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-layer-group"></i>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+                <div>
+                    <h3 class="skill-group-title">Backend & Database</h3>
+                    <div class="mb-2"><span class="skill-badge badge-blue">Java</span> <span class="skill-badge badge-blue">Spring Boot</span> <span class="skill-badge badge-blue">Multi-Tenant SaaS</span> <span class="skill-badge badge-blue">Oracle / MySQL</span></div>
+                    <ul class="skill-list">
+                        <li>REST API, OAuth2/JWT 인증, Session 보안 구조</li>
+                        <li>SAP B1/A1, 더존, WHR, ERP 통합 연동 아키텍처</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="skill-group-title">Frontend & Mobile</h3>
+                    <div class="mb-2"><span class="skill-badge badge-purple">Vue.js (Vue2/3)</span> <span class="skill-badge badge-purple">JavaScript</span> <span class="skill-badge badge-purple">jQuery</span> <span class="skill-badge badge-purple">Mobile WebApp</span></div>
+                    <ul class="skill-list">
+                        <li>반응형(Responsive) UX/UI 설계, 모바일 웹앱 개발</li>
+                        <li>전자결재 폼 디자이너 및 양식 엔진 고도화</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="skill-group-title">AI & Data Engineering (Sub)</h3>
+                    <div class="mb-2"><span class="skill-badge badge-orange">Python</span> <span class="skill-badge badge-orange">Clova Studio</span> <span class="skill-badge badge-orange">MongoDB</span></div>
+                    <ul class="skill-list">
+                        <li>임베딩 파이프라인(전처리→임베딩→저장) 구축</li>
+                        <li>AI 기반 문서 추천 및 질의응답(QA) 시스템 개발</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="skill-group-title">Cloud Ops & Tools</h3>
+                    <div class="mb-2"><span class="skill-badge badge-gray">NAVER Cloud</span> <span class="skill-badge badge-gray">AWS</span> <span class="skill-badge badge-gray">Jenkins</span> <span class="skill-badge badge-gray">Docker</span></div>
+                    <ul class="skill-list">
+                        <li>Podman 이용한 Nginx 무중단 배포</li>
+                        <li>다양한 클라우드 서버(NCP, AWS) SaaS 운영 경험</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mt-10 pt-6 border-t border-gray-200">
+            <h3 class="text-xl font-bold text-gray-900 mb-4"><i class="fas fa-certificate text-blue-600 mr-2"></i>Certifications</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-id-card text-gray-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">정보처리 기사</span></div>            
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-id-card text-gray-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">정보처리 산업기사</span></div>
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-cloud text-blue-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">NAVER Cloud Platform Certified Professional Security (Security)</span></div>
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-cloud text-blue-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">Naver Cloud platform Certified Expert (NCE)</span></div>            
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-cloud text-blue-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">Naver Cloud platform Certified Professional (NCP)</span></div>
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-database text-gray-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">SQLD (SQL 개발자)</span></div>
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-server text-gray-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">리눅스마스터 2급</span></div>                
+                <div class="bg-white border border-gray-200 p-3 rounded shadow-sm flex items-center"><i class="fas fa-robot text-orange-500 mr-3 text-lg"></i><span class="font-bold text-gray-800 text-sm">AI POT 2급 (AI 프롬프트)</span></div>                
+            </div>
+        </section>      
+
+        <!-- ================= PAGE 4 : Professional Experience ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-briefcase"></i>
+                <h2 class="section-title">Part1. Professional Experience(총 8년)</h2>
+            </div>
+
+            <div class="exp-timeline pb-8">
+                <div class="exp-dot"></div>
+                <div class="keep-together">
+                    <span class="exp-period">2021.11 ~ 현재</span>
+                    <h3 class="exp-company">(주)웅진 클라우드서비스팀</h3>
+                    <div class="exp-role">대리 / 웹·클라우드 기반 그룹웨어 개발 및 운영</div>
+                </div>
+                
+                <div class="exp-card">
+                    <span class="exp-card-title">1) HR·전자결재 핵심 모듈 개발 및 운영</span>
+                    <ul class="exp-list">
+                        <li>HR 핵심 모듈 개발: 인사 정보 관리, 근태 관리, 휴가 관리 등 HR 시스템의 핵심 모듈 개발 및 운영</li>
+                        <li>복합 로직 유지보수: 주 52시간 근무제, 유연 근무제, 복잡한 휴가 등의 근태 로직 유지보수</li>
+                        <li>전자결재와 더존 HR, 웅진 WHR간의 연동 문서 개발</li>
+                        <li>전자결재와 더존 ERP, SAP ERP(A1, B1)간의 연동 문서 개발</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <span class="exp-card-title">2) APM (Application Performance Monitoring) 및 서비스 안정화</span>
+                    <ul class="exp-list">
+                        <li>Scouter 기반 APM 시스템 도입 및 운영: 대규모 트래픽 환경 모니터링 체계 구축</li>
+                        <li>주요 트랜잭션 병목 현상(DB 쿼리, 외부 API, GC 등) 정밀 분석 및 개선</li>
+                        <li>Spring 설정 최적화, DB Index/쿼리 튜닝으로 서비스 응답 속도 평균 20% 이상 개선</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <span class="exp-card-title">3) 클라우드 SaaS 운영 & 외부 연동</span>
+                    <ul class="exp-list">
+                        <li>NAVER Cloud 기반 Multi-Tenant 아키텍처 운영 및 데이터 분리 설계</li>
+                        <li>네이버웍스↔그룹웨어↔ERP(SAP/WHR) 간 REST API 통합 및 SSO(OAuth2) 구축</li>
+                        <li>AI API 호출 및 활용: 생성형 AI 모델을 연동하여 업무 자동화 기능 구현 (보조 개발)</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <span class="exp-card-title">4) AI 기반 업무자동화 (R&D)</span>
+                    <ul class="exp-list">
+                        <li>Clova HCX 기반 하이브리드 검색(Semantic+Lexical) 및 사내 문서 임베딩 구축</li>
+                        <li>Python AI 서버와 Spring 연동을 통한 질의응답(QA) 및 문서 추천 시스템 개발</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+		
+        <!-- ================= PAGE 4 : Professional Experience ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-briefcase"></i>
+                <h2 class="section-title">Part2. Professional Experience(총 8년)</h2>
+            </div>
+
+            <div class="exp-timeline pb-8 keep-together">
+                <div class="exp-dot"></div>
+                <div class="keep-together">
+                    <span class="exp-period">2019.01 ~ 2021.05</span>
+                    <h3 class="exp-company">(주)나온소프트 사업개발팀</h3>
+                    <div class="exp-role">사원 / 구축형 기반 그룹웨어 개발</div>
+                </div>
+                
+                <div class="exp-card">
+                    <span class="exp-card-title">1) 그룹웨어 핵심 시스템 구축 및 고도화</span>
+                    <ul class="exp-list">
+                        <li>전자결재 프레임워크 유지보수 및 개선</li>
+                        <li>다양한 전자결재 연동 문서 개발(더존 ERP 연동문서)</li>
+                        <li>전자결재, 게시판 대용량 데이터 이관 프로그램 개발</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <span class="exp-card-title">2) 실시간 시스템 통합 및 인사 연동 </span>
+                    <ul class="exp-list">
+                        <li>웹소켓(Web-Socket) 방식의 메신저-전자결재 간 실시간 인사 연동 체계 구축</li>
+                        <li>더존 ERP 인사 정보 API 연동을 통한 메신저 내 부재/휴가 내역 실시간 표시 기능 개발</li>
+                        <li>더존 ERP 인사데이터와 메신저 ↔ 그룹웨어 간의 연동 시스템 개발</li>
+                    </ul>
+                </div>
+            </div>          
+            
+            <div class="exp-timeline pb-8 keep-together">
+                <div class="exp-dot"></div>
+                <div class="keep-together">
+                    <span class="exp-period">2018.05 ~ 2018.10</span>
+                    <h3 class="exp-company">(주)테크노밸리</h3>
+                    <div class="exp-role">농협 경제 판매시스템 개발(Delphi, 넥사크로, proc)</div>
+                </div>
+                <div class="exp-card mt-2">
+                    <ul class="exp-list">
+                        <li>농협 경제 판매시스템 조회 화면 개발(넥사크로) 및 쿼리 개발(Proc, Delphi)</li>
+                    </ul>
+                </div>
+            </div>          
+
+            <div class="exp-timeline border-none keep-together">
+                <div class="exp-dot"></div>
+                <div class="keep-together">
+                    <span class="exp-period" style="color:#4b5563;">Early Career</span>
+                    <h3 class="exp-company">(주)옵티마케어</h3>
+                    <div class="exp-role">QA 전담 / 약국 청구 프로그램 품질 관리</div>
+                </div>
+                <div class="exp-card mt-2">
+                    <ul class="exp-list">
+                        <li>Test Case 설계 및 Regression Test 수행, 오류 재현 및 리포팅을 통한 프로그램 품질 안정화 기여</li>
+                        <li>약가 로직 및 심평원 기준을 반영한 청구 로직 QA를 진행하여 프로그램의 법적, 운영적 정확도 보증</li>
+                        <li>약국 현장 방문을 통한 PC, 네트워크 및 프로그램 환경 유지보수 및 기술 문제 해결</li>
+                        <li>프로그램 사용 및 청구 오류 관련 전문적인 전화 응대를 수행 및 프로그램 운영 효율성 향상</li>
+                    </ul>
+                </div>
+            </div>
+        </section>		
+        
+        <!-- ================= PAGE 5 : Projects & History ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-trophy"></i>
+                <h2 class="section-title">Part1. Key Project Performance</h2>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2025.08 ~ 2025.11</div>
+                <div>
+                    <h3 class="project-title">헥토 그룹웨어 구축</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">Vue3</span> <span class="badge">Spring Boot</span> <span class="badge">WHR/ERP Integration</span></div>
+                    <ul class="skill-list">
+                        <li>Vue3 기반 공통 프레임워크: UI/UX 표준화 및 컴포넌트 기반 공통 모듈 개발</li>
+                        <li>SAP B1 ERP 연동: SAP B1 출장신청서, 법인카드 생성 신청서 등 다양한 ERP 전자결재 연동 문서 개발</li>
+                        <li>WHR 연동: WHR 휴가신청서, 휴가 변경신청서 등 HR 전자결재 연동 문서 개발</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2025.04 ~ 2025.06</div>
+                <div>
+                    <h3 class="project-title">아마다 그룹웨어 구축 (PL)</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">SSO</span> <span class="badge">SAP B1</span> <span class="badge">Integration</span></div>
+                    <ul class="skill-list">
+                        <li>SSO 연동: OAuth/JWT 기반 타 시스템 간 SSO 통합 인증 체계 구축</li>
+                        <li>SAP B1 ERP 모듈 개발: SAP B1 ERP 호출을 위한 공통 API 모듈 설계 및 개발</li>
+                        <li>SAP B1 ERP 연동: 출장신청서, 거래처 등록 신청서 등 SAP B1 핵심 전자결재 연동 문서 개발</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2024.06 ~ 2024.10</div>
+                <div>
+                    <h3 class="project-title">웅진 그룹웨어 AI 챗봇 ‘웅수’ 개발 (R&D)</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">Clova Studio</span> <span class="badge">MongoDB</span> <span class="badge">Python</span></div>
+                    <ul class="skill-list">
+                        <li>실시간 챗봇 UI: Vue3 대화형 인터페이스 및 Python AI 서버 연동</li>
+                        <li>RAG 파이프라인: Clova Studio HCX 모델 및 MongoDB Vector Search 기반 구축</li>
+                        <li>데이터 임베딩: Clova Embedding API를 이용한 사내 문서 데이터 전처리 및 구축</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2024.08 ~ 2024.12</div>
+                <div>
+                    <h3 class="project-title">바디프랜드 그룹웨어 구축</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">SAP B1 (JCO)</span> <span class="badge">JavaScript</span> <span class="badge">Mobile Vue2</span></div>
+                    <ul class="skill-list">
+                        <li>SAP B1 ERP 연동 모듈 개발: Java JCO를 활용하여 SAP B1 시스템과의 실시간 데이터 연동 기능 및 모듈 구현</li>
+                        <li>모바일 전자결재 웹앱 개발: Vue2 기반 모바일 웹앱 환경에서 전자결재 문서 뷰어, 결재 처리, 기능 구현 및 UX 최적화</li>
+                        <li>데이터 통합: ERP 데이터를 기반으로 하는 다양한 전자결재 개발 및 데이터 정합성 관리</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+		
+        <!-- ================= PAGE 5 : Projects & History ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-trophy"></i>
+                <h2 class="section-title">Part2. Key Project Performance</h2>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2024.02 ~ 2024.06</div>
+                <div>
+                    <h3 class="project-title">웅진씽크빅 전자계약 (모두싸인) 연동 개발</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">Modusign</span> <span class="badge">Webhook</span> <span class="badge">API Integration</span></div>
+                    <ul class="skill-list">
+                        <li>전자계약 연동 모듈 개발: 전자결재 시스템과 모두싸인 서비스 간의 양방향 REST API 연동을 구현하여 계약서의 생성, 전송, 상태 조회를 자동화</li>
+                        <li>Webhook 기반 실시간 동기화: Modusign의 Webhook 이벤트 리스너를 구축하여 계약서 서명 완료, 거부 등 상태 변경을 실시간으로 그룹웨어에 반영하는 알림 시스템 구현</li>
+                        <li>계약 관리 및 감사 기능: 계약서 전송 이력, 서명 상태 및 진행 단계를 상세 추적할 수 있는 로그 기반 관리 화면을 개발하여 프로세스 투명성 및 감사(Audit) 대응 기반 마련</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="project-grid">
+                <div class="project-date">2023.03 ~ 2023.05</div>
+                <div>
+                    <h3 class="project-title">제이에스티나 그룹웨어 구축</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">Douzone ERP</span> <span class="badge">Douzone HR</span> <span class="badge">SECOM API</span></div>
+                    <ul class="skill-list">
+                        <li>더존 ERP/HR 통합 연동: 더존 DB 커넥션 및 View를 활용하여 전자결재 문서와 인사 데이터(조직도, 사원 정보 등)를 양방향으로 연동하는 핵심 모듈 구현</li>
+                        <li>SECOM 근태 연동: SECOM 근태 API를 직접 연동하여 출입 및 근태 데이터를 그룹웨어 근태 모듈로 가져오는 실시간 동기화 기능 구현</li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2022.11 ~ 2023.02</div>
+                <div>
+                    <h3 class="project-title">쏘카 그룹웨어 구축</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">SAP A1 (JCO)</span> <span class="badge">Framework</span></div>
+                    <ul class="skill-list">
+                        <li>SAP A1 호출 프레임워크 개발: SAP A1 RFC 호출을 위한 공통 프레임워크 설계 및 개발</li>
+                        <li>SAP A1 연동: 거래처 등록, 출장 신청서, 전표 신청서 등 SAP A1 RFC 연동 문서 개발</li>
+                        <li>결재 기능 고도화: 전결 규정 및 팀 결재 기능 구현</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-grid">
+                <div class="project-date">2022.05 ~ 2022.07</div>
+                <div>
+                    <h3 class="project-title">웅진 그룹웨어 모바일 앱 리뉴얼</h3>
+                    <div class="project-badges mt-1 mb-2"><span class="badge">Vue2</span> <span class="badge">REST API</span></div>
+                    <ul class="skill-list">
+                        <li>플랫폼 현대화: 기존 네이티브 앱을 모바일 웹앱(Vue2) 기반으로 전면 재개발</li>
+                        <li>전자결재 UX 개선: Vue 기반의 전자결재 모바일 뷰어 화면 및 포틀릿 기능 개발</li>
+                        <li>API 재설계: 모바일 환경에 최적화된 REST API를 설계 및 개발</li>
+                    </ul>
+                </div>
+            </div>
+        </section>		
+
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-list-ul"></i>
+                <h2 class="section-title">Full Project History</h2>
+            </div>
+            <table class="custom-table">
+                <thead>
+                    <tr><th width="25%">기간</th>
+                    <th width="25%">재직회사</th>
+                    <th>프로젝트명</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>2025.08 ~ 2025.11</td><td>(주)웅진</td><td>헥토 그룹웨어 구축</td></tr>
+                    <tr><td>2025.04 ~ 2025.06</td><td>(주)웅진</td><td>아마다 그룹웨어 구축 (PL)</td></tr>
+                    <tr><td>2024.08 ~ 2024.12</td><td>(주)웅진</td><td>바디프랜드 그룹웨어 구축</td></tr>
+                    <tr><td>2024.06 ~ 2024.10</td><td>(주)웅진</td><td>웅진 그룹웨어 AI 챗봇 ‘웅수’ 개발 (R&D)</td></tr>
+                    <tr><td>2024.02 ~ 2024.06</td><td>(주)웅진</td><td>웅진씽크빅 전자계약(모두싸인) 연동</td></tr>
+                    <tr><td>2023.03 ~ 2023.05</td><td>(주)웅진</td><td>제이에스티나 그룹웨어 구축</td></tr>
+                    <tr><td>2022.11 ~ 2023.02</td><td>(주)웅진</td><td>쏘카 그룹웨어 구축</td></tr>
+                    <tr><td>2022.05 ~ 2022.07</td><td>(주)웅진</td><td>웅진 그룹웨어 모바일 앱 리뉴얼</td></tr>
+                    <tr><td>2021.01 ~ 2021.02</td><td>(주)나온소프트</td><td>이누스 데이터 이관 프로젝트</td></tr>
+                    <tr><td>2020.10 ~ 2020.12</td><td>(주)나온소프트</td><td>에스와이에스리테일(전자랜드) 그룹웨어 구축</td></tr>
+                    <tr><td>2020.05 ~ 2020.10</td><td>(주)나온소프트</td><td>이지스자산운용 그룹웨어 구축</td></tr>
+                    <tr><td>2020.02 ~ 2020.04</td><td>(주)나온소프트</td><td>태평양물산 그룹웨어 구축</td></tr>
+                    <tr><td>2019.10 ~ 2019.12</td><td>(주)나온소프트</td><td>롯데손해보험 그룹웨어 업그레이드</td></tr>
+                </tbody>
+            </table>
+        </section>      
+
+        <section class="awards-strength-wrapper force-page-start keep-together">
+            <div class="section-header">
+                <i class="fas fa-trophy"></i>
+                <h2 class="section-title">Awards & Strength</h2>
+            </div>
+
+            <div class="flex flex-col gap-8 fade-up">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+                        <i data-lucide="award" class="text-blue-600"></i> Awards History
+                    </h3>
+                    
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="divide-y divide-slate-100">
+                            
+                            <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
+                                    <span class="font-bold text-blue-600 text-lg">2024</span>
+                                </div>
+                                <div class="flex-grow z-10">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-700 border border-blue-200">Company</span>
+                                        <h4 class="font-bold text-slate-900 leading-none">웅진 핵심 인재상 수상</h4>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        그룹웨어·전자결재 고도화 및 신규 서비스 도입을 주도하며, <strong>조직의 디지털 전환을 이끄는 핵심 개발자</strong>로 인정받았습니다.
+                                        기술 역량뿐 아니라, 문제를 끝까지 책임지고 풀어내는 실행력과 조직 기여도가 높은 평가를 받았습니다.
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));">
+                                        <defs>
+                                            <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#60A5FA" />
+                                                <stop offset="100%" style="stop-color:#2563EB" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M14 12 H50 V20 C50 32 42 40 32 40 C22 40 14 32 14 20 V12 Z" fill="url(#trophyGrad)" stroke="#1E40AF" stroke-width="2"/>
+                                        <path d="M24 48 H40 M32 40 V48 M20 54 H44" stroke="#1E40AF" stroke-width="3" stroke-linecap="round"/>
+                                        <path d="M14 16 H8 C6 16 4 18 4 22 C4 28 8 30 14 26" stroke="#60A5FA" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                        <path d="M50 16 H56 C58 16 60 18 60 22 C60 28 56 30 50 26" stroke="#60A5FA" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                        <path d="M32 20 L34 24 H38 L35 27 L36 31 L32 29 L28 31 L29 27 L26 24 H30 L32 20 Z" fill="#FFFFFF"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
+                                    <span class="font-bold text-blue-600 text-lg">2024</span>
+                                </div>
+                                <div class="flex-grow z-10">
+                                    <div class="flex items-center gap-2 mb-2">
+                                         <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-100 text-blue-700 border border-blue-200">Company</span>
+                                        <h4 class="font-bold text-slate-900 leading-none">웅진 프로젝트 매니저상 수상</h4>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        복잡한 이해관계와 까다로운 일정 속에서도 <strong>요구사항 정의 → 설계 → 개발 → 오픈</strong>까지 전 과정을 리딩하며
+                                        품질과 일정, 두 마리 토끼를 모두 잡은 점을 높게 인정받았습니다. 개발자이면서도 PM의 시야로 프로젝트를 운영할 수 있는 역량을 입증했습니다.
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));">
+                                        <defs>
+                                            <linearGradient id="trophyGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#60A5FA" />
+                                                <stop offset="100%" style="stop-color:#2563EB" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M14 12 H50 V20 C50 32 42 40 32 40 C22 40 14 32 14 20 V12 Z" fill="url(#trophyGrad2)" stroke="#1E40AF" stroke-width="2"/>
+                                        <path d="M24 48 H40 M32 40 V48 M20 54 H44" stroke="#1E40AF" stroke-width="3" stroke-linecap="round"/>
+                                        <path d="M14 16 H8 C6 16 4 18 4 22 C4 28 8 30 14 26" stroke="#60A5FA" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                        <path d="M50 16 H56 C58 16 60 18 60 22 C60 28 56 30 50 26" stroke="#60A5FA" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                         <path d="M32 20 L34 24 H38 L35 27 L36 31 L32 29 L28 31 L29 27 L26 24 H30 L32 20 Z" fill="#FFFFFF"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex gap-5 hover:bg-yellow-50/30 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
+                                    <span class="font-bold text-amber-600 text-lg">2023</span>
+                                </div>
+                                <div class="flex-grow z-10">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-800 border border-amber-200">Boxing</span>
+                                        <h4 class="font-bold text-slate-900 leading-none">서울시대표 선발전 1등</h4>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        한 번의 경기로 끝나는 승부가 아니라, <strong>오랜 기간의 준비와 체계적인 자기관리</strong>가 쌓여 만들어낸 결과입니다.
+                                        목표를 정하면 끝까지 물고 늘어지는 집중력과, 위기 상황에서도 흐트러지지 않는 실전 대응 능력을 기르며 개발자로서의 멘탈도 함께 단련했습니다.
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
+                                        <defs>
+                                            <linearGradient id="goldBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#FFED8A" />
+                                                <stop offset="50%" style="stop-color:#FFC800" />
+                                                <stop offset="100%" style="stop-color:#D4A000" />
+                                            </linearGradient>
+                                            <linearGradient id="goldInner" x1="100%" y1="100%" x2="0%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#D4A000" />
+                                                <stop offset="100%" style="stop-color:#FFED8A" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
+                                        <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
+                                        <circle cx="50" cy="60" r="28" fill="url(#goldBody)" stroke="#B48600" stroke-width="2"/>
+                                        <circle cx="50" cy="60" r="22" fill="none" stroke="url(#goldInner)" stroke-width="3" opacity="0.6"/>
+                                        <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#B45309" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.5));">1</text>
+                                        <path d="M35 50 Q40 45 50 45 T65 50" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
+                                    <span class="font-bold text-slate-500 text-lg">2022</span>
+                                </div>
+                                <div class="flex-grow z-10">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Boxing</span>
+                                        <h4 class="font-bold text-slate-900 leading-none">서울시대표 선발전 2등</h4>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        승리와 패배를 모두 경험하며, <strong>데이터처럼 냉정하게 스스로를 분석하고 개선 포인트를 찾아가는 습관</strong>을 갖게 되었습니다.
+                                        이 경험은 장애 상황에서의 로그 분석, 원인 추적, 재발 방지 대책 수립 등 개발 업무의 문제 해결 과정에 그대로 연결되어 있습니다.
+                                    </p>
+                                </div>
+                                <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
+                                        <defs>
+                                            <linearGradient id="silverBody" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#F8FAFC" />
+                                                <stop offset="50%" style="stop-color:#94A3B8" />
+                                                <stop offset="100%" style="stop-color:#64748B" />
+                                            </linearGradient>
+                                            <linearGradient id="silverInner" x1="100%" y1="100%" x2="0%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#64748B" />
+                                                <stop offset="100%" style="stop-color:#FFFFFF" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
+                                        <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
+                                        <circle cx="50" cy="60" r="28" fill="url(#silverBody)" stroke="#475569" stroke-width="2"/>
+                                        <circle cx="50" cy="60" r="22" fill="none" stroke="url(#silverInner)" stroke-width="3" opacity="0.6"/>
+                                         <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#475569" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.8));">2</text>
+                                         <path d="M35 50 Q40 45 50 45 T65 50" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
+                                    <span class="font-bold text-slate-500 text-lg">2019</span>
+                                </div>
+                                <div class="flex-grow z-10">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Boxing</span>
+                                        <h4 class="font-bold text-slate-900 leading-none">전국우승권 2등</h4>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        매일 반복되는 고된 훈련을 소화하며 요행이 아닌 <strong>땀과 노력의 가치</strong>를 배웠습니다.
+                                        기초가 튼튼해야 링 위에서 버틸 수 있듯, 개발 실무에서도 <strong>기본기에 충실한 자세와 성실함</strong>으로
+                                        팀의 목표에 기여할 수 있는 <strong>단단한 내실을 다졌습니다.</strong>
+                                    </p>
+                                </div>
+                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
+                                         <defs>
+                                            <linearGradient id="silverBody2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#F8FAFC" />
+                                                <stop offset="50%" style="stop-color:#94A3B8" />
+                                                <stop offset="100%" style="stop-color:#64748B" />
+                                            </linearGradient>
+                                             <linearGradient id="silverInner2" x1="100%" y1="100%" x2="0%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#64748B" />
+                                                <stop offset="100%" style="stop-color:#FFFFFF" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
+                                        <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
+                                        <circle cx="50" cy="60" r="28" fill="url(#silverBody2)" stroke="#475569" stroke-width="2"/>
+                                        <circle cx="50" cy="60" r="22" fill="none" stroke="url(#silverInner2)" stroke-width="3" opacity="0.6"/>
+                                         <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#475569" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.8));">2</text>
+                                         <path d="M35 50 Q40 45 50 45 T65 50" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
+                                <div class="flex-shrink-0 w-12 text-center">
+                                    <span class="font-bold text-slate-500 text-lg">2015</span>
+                                </div>
+                                <div class="flex-grow z-10">
+                                    <div class="flex items-center gap-2 mb-2">
+                                         <span class="px-2 py-0.5 rounded text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Boxing</span>
+                                        <h4 class="font-bold text-slate-900 leading-none">서울신인선수권 2등</h4>
+                                    </div>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        QA 업무에서 가장 중요한 <strong>치밀함</strong>은 편안할 때가 아닌, 극한의 상황에서 비로소 증명된다는 것을 배웠습니다.
+                                        숨이 턱 끝까지 차오르는 훈련 속에서도 <strong>정확성을 잃지 않으려는 노력</strong>은,
+                                        복잡한 로직 속에서도 <strong>끝까지 결함을 추적해내는 개발자의 집요함</strong>으로 이어졌습니다.
+                                    </p>
+                                </div>
+                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
+                                         <defs>
+                                            <linearGradient id="silverBody3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#F8FAFC" />
+                                                <stop offset="50%" style="stop-color:#94A3B8" />
+                                                <stop offset="100%" style="stop-color:#64748B" />
+                                            </linearGradient>
+                                             <linearGradient id="silverInner3" x1="100%" y1="100%" x2="0%" y2="0%">
+                                                <stop offset="0%" style="stop-color:#64748B" />
+                                                <stop offset="100%" style="stop-color:#FFFFFF" />
+                                            </linearGradient>
+                                        </defs>
+                                        <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
+                                        <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
+                                        <circle cx="50" cy="60" r="28" fill="url(#silverBody3)" stroke="#475569" stroke-width="2"/>
+                                        <circle cx="50" cy="60" r="22" fill="none" stroke="url(#silverInner3)" stroke-width="3" opacity="0.6"/>
+                                         <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#475569" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.8));">2</text>
+                                         <path d="M35 50 Q40 45 50 45 T65 50" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 rounded-2xl border-l-4 border-orange-500 p-8 shadow-sm mt-4 keep-together">
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
+                        <i data-lucide="flame" class="text-orange-600"></i> Strength: Mental Toughness
+                    </h3>
+                    
+                    <h4 class="text-2xl font-black text-orange-700 mb-4 leading-tight">
+                        "링 위에서 단련한 집요함을 서비스 품질에 그대로 옮기다"
+                    </h4>
+                    
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        2년 연속 서울시 대표 선발전에서 입상한 경험은 단순히 스포츠 경력이 아니라,
+                        <strong>압박과 피로, 변수 속에서도 끝까지 집중력을 유지한 훈련의 결과</strong>입니다.<br><br>
+                        복싱에서 상대의 패턴을 읽고 빈틈을 공략하듯, 개발에서도 로그와 데이터를 끝까지 추적하며 근본 원인을 찾는 스타일입니다.
+                        장애·버그·지연과 같은 난관 앞에서도 쉽게 포기하지 않고, 로직과 소스 분석을 통해 <br><strong>“왜 이런 현상이 발생했는가?”를 집요하게 파고드는 문제 해결형 개발자</strong>입니다.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="thank-you-footer keep-together">
+                <h3 class="text-xl font-bold mb-2">Thank You</h3>
+                <p class="text-sm">끝까지 읽어주셔서 감사합니다. <br>최고의 퍼포먼스로 보답하겠습니다</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
