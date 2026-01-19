@@ -87,7 +87,88 @@
         .custom-table td { padding: 10px; border-bottom: 1px solid #f3f4f6; color: #4b5563; }
         .custom-table tr:last-child td { border-bottom: none; }
 
-        .cover-page { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 950px; text-align: center; border-bottom: 1px dashed #ddd; margin-bottom: 50px; position: relative; }
+        /* 표지(Cover Page) 스타일 */
+        .cover-page { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-start; /* 상단 정렬로 변경 */
+            align-items: center; 
+            min-height: 950px; 
+            text-align: center; 
+            border-bottom: 1px dashed #ddd; 
+            margin-bottom: 50px; 
+            position: relative; 
+            padding-top: 80px; /* 사진 시작 위치 고정 */
+        }
+        
+        /* 지원 회사 정보 (상단 라인 일치 및 디자인 강화) */
+        .target-submission { 
+            position: absolute; 
+            top: 80px; /* 증명사진 padding-top과 일치시켜 상단 라인 고정 */
+            right: 0; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            min-width: 240px;
+            align-items: center;
+            text-align: center;
+        }
+        .target-badge {
+            font-size: 0.65rem;
+            font-weight: 900;
+            color: #3b82f6;
+            background: #eff6ff;
+            padding: 3px 12px;
+            border-radius: 6px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            border: 1px solid #dbeafe;
+        }
+        .target-main-row {
+            display: flex;
+            flex-direction: column; /* 세로 배치로 조금 더 깔끔하게 */
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+        }
+        .target-logo-icon { 
+            width: 48px; 
+            height: 48px; 
+            background: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+        }
+        .target-logo-icon img { width: 28px; height: 28px; object-fit: contain; }
+        
+        .target-company-name { 
+            font-size: 1.4rem; 
+            font-weight: 900; 
+            color: #1e3a8a;
+            letter-spacing: -0.03em;
+            word-break: keep-all;
+        }
+        .target-divider {
+            width: 40px;
+            height: 3px;
+            background: #2563eb;
+            margin: 12px 0;
+            border-radius: 2px;
+        }
+        .target-footer-text {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
         .cover-photo-box { width: 160px; height: 210px; overflow: hidden; border-radius: 16px; border: 1px solid #e5e7eb; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); margin-bottom: 2.5rem; background-color: #f3f4f6; }
         .cover-photo-box img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
         .cover-name { font-size: 2.8rem; font-weight: 900; color: #111827; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
@@ -122,12 +203,12 @@
         }
 
         /* ==========================================================================
-           [2] 인쇄(PDF) 최적화 - (최종 수정)
+           [2] 인쇄(PDF) 최적화
            ========================================================================== */
         @media print {
             @page {
                 size: A4;
-                margin: 0; /* 브라우저 기본 여백 제거 */
+                margin: 0;
             }
             
             body {
@@ -143,7 +224,6 @@
                 max-width: 210mm;
                 min-height: auto;
                 margin: 0 auto; 
-                /* 상단 여백 30mm로 충분히 확보 */
                 padding: 30mm 20mm 20mm 20mm !important; 
                 box-shadow: none;
                 border: none;
@@ -151,16 +231,22 @@
             
             .print-hide { display: none; }
 
-            /* [페이지 1] 표지 */
             .cover-page { 
                 height: 260mm !important; 
                 page-break-after: always;
-                justify-content: center;
+                justify-content: flex-start;
                 margin-bottom: 0;
                 border-bottom: none;
+                padding-top: 50px !important;
             }
 
-            /* [새 페이지 시작 강제] 각 메인 섹션마다 적용 */
+            /* 회사 정보 출력 시 위치 고정 */
+            .target-submission { 
+                top: 50px !important; 
+                box-shadow: none !important; 
+                border: 1px solid #e2e8f0 !important; 
+            }
+
             .force-page-start {
                 page-break-before: always !important;
                 break-before: page !important;
@@ -168,19 +254,16 @@
                 padding-top: 50px !important; 
             }
 
-            /* 섹션 간 간격 확보 */
             section {
                 margin-bottom: 40px !important;
             }
 
-            /* [끊김 방지] */
             .intro-box, .exp-card, .project-grid, .tech-card, .contact-info, 
             tr, .keep-together { 
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
             }
 
-            /* [헤더] 내용과 분리 방지 */
             .section-header {
                 page-break-after: avoid;
                 break-after: avoid;
@@ -201,6 +284,21 @@
         
         <!-- ================= PAGE 1 : Cover ================= -->
         <div class="cover-page">
+            <!-- [신규 프리미엄 커스텀 디자인 - 상단 라인 일치 적용] -->
+            <!--<div class="target-submission">
+                <span class="target-badge">Recruitment 2026</span>
+                <div class="target-main-row">
+                    <div class="target-logo-icon">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACPklEQVR4AbyTA6weWxRG1z7n/M+2ET+2DWpbURs3Th2nCms3bsOaMWsrKKLatt3+mDlfeyepeTF3JRvDvQYnJJ2WqYKnhKciTxlPUYEShawvZf2jUIFiVrPgAYGiqqKQHS8rZFUyKh9VuNToMtf+ucLtP25T/PY+8YMKFlLwPEegDnnweZnDXU9wtvk59GGC+Yh5gQnHq3HUEYebXWLdiJ2caH6BNAgJeBwZOQlELzb3PsXOnqcpB6HUUDSoChkZyklADlb1Os+Rv28TU4ceRzSkLPJ9Axtb3+Donw+eDk+erQaPJV4PgRpy/NcyO/67jyUOgPh4kAnMY14oChNvJHjv/6wAokAAEoTDY0TEe1lO8SREQtFl9ebnMSzpcHdzTNxPBpjARYgACDOQj8i7YwQ/yyVs5X1/ToWUD3ieYKu6naSafDfvSB/j0fAETIalBsGyPsNI8Rr7YxNN3GQdkzr/BKrQD3MoZsMxX9VHXExBmUi/ox2bzj3K2/FUk59nHPg6scJ0ZA4ZxMfLziFVhS0426vhKN6RQDUpuQ+bKpWXGYaQgZmQE6Qu+oRRVAOjmnw1/eRQjGnPXywwwNh+bfCfTakGgWrjvicKAPEYAxPAboB8BeSCYuRlDHPuXu4CMQWi8SokyF2AxKHXTLJo+QskpYC9RkBWDwKqeMTryf8NlN/DiLwK4fIXiCWPvWaQqJdPEIiv+wmtHgRi4oGHG8go+MuECGj6OwDseVCtR3HNgmgTDjAYdcCoA0YdAABMbxrDLO8I2QAAAABJRU5ErkJggg==" alt="Logo">
+                    </div>
+                    <div class="target-company-name">
+                        [TMAP MOBILITY]
+                    </div>
+                </div>
+                <div class="target-divider"></div>
+                <div class="target-footer-text">사내 시스템 기획</div>
+            </div>-->
+
             <div class="cover-photo-box">
                 <img src="img/photo.jpg" alt="이준수" onerror="this.src='https://via.placeholder.com/160x210?text=Photo'">
             </div>
@@ -288,7 +386,6 @@
                     </p>
                 </div>
 
-                <!-- 하단 상세 역량 (디자인 개선 및 그룹화) -->
                 <div class="bg-white rounded-xl p-5 border border-blue-100 shadow-sm">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                         <div>
@@ -331,7 +428,6 @@
                     <ul class="skill-list">
                         <li>REST API, OAuth2/JWT 인증, Session 보안 구조</li>
                         <li>SAP B1/A1, 더존, WHR, ERP 통합 연동 아키텍처</li>
-                        <li>대규모 트랜잭션 처리 및 ETL/배치 데이터 동기화</li>
                     </ul>
                 </div>
                 <div>
@@ -346,15 +442,15 @@
                     <h3 class="skill-group-title">AI & Data Engineering (Sub)</h3>
                     <div class="mb-2"><span class="skill-badge badge-orange">Python</span> <span class="skill-badge badge-orange">Clova Studio</span> <span class="skill-badge badge-orange">MongoDB</span></div>
                     <ul class="skill-list">
-                        <li>임베딩 파이프라인(전처리→임베딩→저장) 구축 및 Semantic Search</li>
-                        <li>AI 기반 문서 추천 및 질의응답(QA) 시스템 개발 (보조)</li>
+                        <li>임베딩 파이프라인(전처리→임베딩→저장) 구축</li>
+                        <li>AI 기반 문서 추천 및 질의응답(QA) 시스템 개발</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="skill-group-title">Cloud Ops & Tools</h3>
                     <div class="mb-2"><span class="skill-badge badge-gray">NAVER Cloud</span> <span class="skill-badge badge-gray">AWS</span> <span class="skill-badge badge-gray">Jenkins</span> <span class="skill-badge badge-gray">Docker</span></div>
                     <ul class="skill-list">
-                        <li>Podman 이용한 Nginx 무중단 배포(Blue-Green)</li>
+                        <li>Podman 이용한 Nginx 무중단 배포</li>
                         <li>다양한 클라우드 서버(NCP, AWS) SaaS 운영 경험</li>
                     </ul>
                 </div>
@@ -379,7 +475,7 @@
         <section class="force-page-start">
             <div class="section-header">
                 <i class="fas fa-briefcase"></i>
-                <h2 class="section-title">Professional Experience(총 7년)</h2>
+                <h2 class="section-title">Part1. Professional Experience(총 8년)</h2>
             </div>
 
             <div class="exp-timeline pb-8">
@@ -423,8 +519,15 @@
                     </ul>
                 </div>
             </div>
+        </section>
+		
+        <!-- ================= PAGE 4 : Professional Experience ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-briefcase"></i>
+                <h2 class="section-title">Part2. Professional Experience(총 8년)</h2>
+            </div>
 
-            <!-- Naonsoft: 강제로 묶어서 짤림 방지 -->
             <div class="exp-timeline pb-8 keep-together">
                 <div class="exp-dot"></div>
                 <div class="keep-together">
@@ -451,7 +554,6 @@
                 </div>
             </div>          
             
-            <!-- Techno Valley -->
             <div class="exp-timeline pb-8 keep-together">
                 <div class="exp-dot"></div>
                 <div class="keep-together">
@@ -466,7 +568,6 @@
                 </div>
             </div>          
 
-            <!-- Optima -->
             <div class="exp-timeline border-none keep-together">
                 <div class="exp-dot"></div>
                 <div class="keep-together">
@@ -483,13 +584,13 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </section>		
         
         <!-- ================= PAGE 5 : Projects & History ================= -->
         <section class="force-page-start">
             <div class="section-header">
                 <i class="fas fa-trophy"></i>
-                <h2 class="section-title">Key Project Performance</h2>
+                <h2 class="section-title">Part1. Key Project Performance</h2>
             </div>
 
             <div class="project-grid">
@@ -538,10 +639,18 @@
                     <div class="project-badges mt-1 mb-2"><span class="badge">SAP B1 (JCO)</span> <span class="badge">JavaScript</span> <span class="badge">Mobile Vue2</span></div>
                     <ul class="skill-list">
                         <li>SAP B1 ERP 연동 모듈 개발: Java JCO를 활용하여 SAP B1 시스템과의 실시간 데이터 연동 기능 및 모듈 구현</li>
-                        <li>모바일 전자결재 웹앱 개발: Vue2 기반 모바일 웹앱 환경에서 전자결재 문서 뷰어, <br>결재 처리, 기능 구현 및 UX 최적화</li>
+                        <li>모바일 전자결재 웹앱 개발: Vue2 기반 모바일 웹앱 환경에서 전자결재 문서 뷰어, 결재 처리, 기능 구현 및 UX 최적화</li>
                         <li>데이터 통합: ERP 데이터를 기반으로 하는 다양한 전자결재 개발 및 데이터 정합성 관리</li>
                     </ul>
                 </div>
+            </div>
+        </section>
+		
+        <!-- ================= PAGE 5 : Projects & History ================= -->
+        <section class="force-page-start">
+            <div class="section-header">
+                <i class="fas fa-trophy"></i>
+                <h2 class="section-title">Part2. Key Project Performance</h2>
             </div>
 
             <div class="project-grid">
@@ -593,9 +702,8 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </section>		
 
-        <!-- ★ 수정: Full Project History 섹션 페이지 분리 ★ -->
         <section class="force-page-start">
             <div class="section-header">
                 <i class="fas fa-list-ul"></i>
@@ -625,8 +733,6 @@
             </table>
         </section>      
 
-        <!-- ================= PAGE LAST : Awards & Strength ================= -->
-        <!-- ★ force-page-start 적용: 여기서 강제로 새 페이지 시작 ★ -->
         <section class="awards-strength-wrapper force-page-start keep-together">
             <div class="section-header">
                 <i class="fas fa-trophy"></i>
@@ -634,7 +740,6 @@
             </div>
 
             <div class="flex flex-col gap-8 fade-up">
-                <!-- 1. Unified Awards List (Realistic Medals & Center Alignment) -->
                 <div>
                     <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
                         <i data-lucide="award" class="text-blue-600"></i> Awards History
@@ -643,7 +748,6 @@
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                         <div class="divide-y divide-slate-100">
                             
-                            <!-- Company Award 1 -->
                             <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group items-center">
                                 <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-blue-600 text-lg">2024</span>
@@ -658,29 +762,23 @@
                                         기술 역량뿐 아니라, 문제를 끝까지 책임지고 풀어내는 실행력과 조직 기여도가 높은 평가를 받았습니다.
                                     </p>
                                 </div>
-                                <!-- [Center Alignment Fix] w-16 for fixed width, justify-center for horizontal center -->
                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.15));">
                                         <defs>
                                             <linearGradient id="trophyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" style="stop-color:#60A5FA" /> <!-- Blue-400 -->
-                                                <stop offset="100%" style="stop-color:#2563EB" /> <!-- Blue-600 -->
+                                                <stop offset="0%" style="stop-color:#60A5FA" />
+                                                <stop offset="100%" style="stop-color:#2563EB" />
                                             </linearGradient>
                                         </defs>
-                                        <!-- Cup Body -->
                                         <path d="M14 12 H50 V20 C50 32 42 40 32 40 C22 40 14 32 14 20 V12 Z" fill="url(#trophyGrad)" stroke="#1E40AF" stroke-width="2"/>
-                                        <!-- Base -->
                                         <path d="M24 48 H40 M32 40 V48 M20 54 H44" stroke="#1E40AF" stroke-width="3" stroke-linecap="round"/>
-                                        <!-- Handles -->
                                         <path d="M14 16 H8 C6 16 4 18 4 22 C4 28 8 30 14 26" stroke="#60A5FA" stroke-width="3" fill="none" stroke-linecap="round"/>
                                         <path d="M50 16 H56 C58 16 60 18 60 22 C60 28 56 30 50 26" stroke="#60A5FA" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                        <!-- Star -->
                                         <path d="M32 20 L34 24 H38 L35 27 L36 31 L32 29 L28 31 L29 27 L26 24 H30 L32 20 Z" fill="#FFFFFF"/>
                                     </svg>
                                 </div>
                             </div>
 
-                            <!-- Company Award 2 -->
                             <div class="p-6 flex gap-5 hover:bg-blue-50/30 transition-colors keep-together relative group items-center">
                                 <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-blue-600 text-lg">2024</span>
@@ -712,7 +810,6 @@
                                 </div>
                             </div>
 
-                            <!-- Boxing Award 1 (Gold Medal - Realistic) -->
                             <div class="p-6 flex gap-5 hover:bg-yellow-50/30 transition-colors keep-together relative group items-center">
                                 <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-amber-600 text-lg">2023</span>
@@ -727,44 +824,29 @@
                                         목표를 정하면 끝까지 물고 늘어지는 집중력과, 위기 상황에서도 흐트러지지 않는 실전 대응 능력을 기르며 개발자로서의 멘탈도 함께 단련했습니다.
                                     </p>
                                 </div>
-                                
-                                <!-- Realistic Gold Medal SVG -->
                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                         <defs>
-                                            <!-- Gold Gradient -->
                                             <linearGradient id="goldBody" x1="0%" y1="0%" x2="100%" y2="100%">
                                                 <stop offset="0%" style="stop-color:#FFED8A" />
                                                 <stop offset="50%" style="stop-color:#FFC800" />
                                                 <stop offset="100%" style="stop-color:#D4A000" />
                                             </linearGradient>
-                                             <!-- Inner Ring Gradient -->
                                             <linearGradient id="goldInner" x1="100%" y1="100%" x2="0%" y2="0%">
                                                 <stop offset="0%" style="stop-color:#D4A000" />
                                                 <stop offset="100%" style="stop-color:#FFED8A" />
                                             </linearGradient>
                                         </defs>
-                                        
-                                        <!-- Ribbon (Red) -->
-                                        <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/> <!-- Main Ribbon -->
-                                        <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/> <!-- Darker fold hint -->
-
-                                        <!-- Medal Circle -->
+                                        <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
+                                        <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
                                         <circle cx="50" cy="60" r="28" fill="url(#goldBody)" stroke="#B48600" stroke-width="2"/>
-                                        
-                                        <!-- Inner Detail Ring -->
                                         <circle cx="50" cy="60" r="22" fill="none" stroke="url(#goldInner)" stroke-width="3" opacity="0.6"/>
-                                        
-                                        <!-- Number 1 -->
                                         <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#B45309" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.5));">1</text>
-                                        
-                                        <!-- Shine Specular -->
                                         <path d="M35 50 Q40 45 50 45 T65 50" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
                                     </svg>
                                 </div>
                             </div>
 
-                            <!-- Boxing Award 2 (Silver Medal - Realistic) -->
                             <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
                                 <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-slate-500 text-lg">2022</span>
@@ -779,12 +861,9 @@
                                         이 경험은 장애 상황에서의 로그 분석, 원인 추적, 재발 방지 대책 수립 등 개발 업무의 문제 해결 과정에 그대로 연결되어 있습니다.
                                     </p>
                                 </div>
-                                
-                                <!-- Realistic Silver Medal SVG -->
                                 <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                         <defs>
-                                            <!-- Silver Gradient -->
                                             <linearGradient id="silverBody" x1="0%" y1="0%" x2="100%" y2="100%">
                                                 <stop offset="0%" style="stop-color:#F8FAFC" />
                                                 <stop offset="50%" style="stop-color:#94A3B8" />
@@ -795,27 +874,16 @@
                                                 <stop offset="100%" style="stop-color:#FFFFFF" />
                                             </linearGradient>
                                         </defs>
-                                        
-                                        <!-- Ribbon (Red) -->
                                         <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
                                         <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
-
-                                        <!-- Medal Circle -->
                                         <circle cx="50" cy="60" r="28" fill="url(#silverBody)" stroke="#475569" stroke-width="2"/>
-                                        
-                                        <!-- Inner Detail Ring -->
                                         <circle cx="50" cy="60" r="22" fill="none" stroke="url(#silverInner)" stroke-width="3" opacity="0.6"/>
-                                        
-                                        <!-- Number 2 -->
                                          <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#475569" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.8));">2</text>
-
-                                         <!-- Shine -->
                                          <path d="M35 50 Q40 45 50 45 T65 50" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
                                     </svg>
                                 </div>
                             </div>
                             
-                            <!-- Boxing Award 3 (Silver Medal - Realistic) -->
                             <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
                                 <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-slate-500 text-lg">2019</span>
@@ -831,8 +899,6 @@
                                         팀의 목표에 기여할 수 있는 <strong>단단한 내실을 다졌습니다.</strong>
                                     </p>
                                 </div>
-                                
-                                 <!-- Realistic Silver Medal SVG -->
                                  <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                          <defs>
@@ -846,10 +912,8 @@
                                                 <stop offset="100%" style="stop-color:#FFFFFF" />
                                             </linearGradient>
                                         </defs>
-                                        
                                         <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
                                         <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
-
                                         <circle cx="50" cy="60" r="28" fill="url(#silverBody2)" stroke="#475569" stroke-width="2"/>
                                         <circle cx="50" cy="60" r="22" fill="none" stroke="url(#silverInner2)" stroke-width="3" opacity="0.6"/>
                                          <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#475569" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.8));">2</text>
@@ -858,7 +922,6 @@
                                 </div>
                             </div>
 
-                            <!-- Boxing Award 4 (Silver Medal - Realistic) -->
                             <div class="p-6 flex gap-5 hover:bg-slate-100 transition-colors keep-together relative group items-center">
                                 <div class="flex-shrink-0 w-12 text-center">
                                     <span class="font-bold text-slate-500 text-lg">2015</span>
@@ -874,7 +937,6 @@
                                         복잡한 로직 속에서도 <strong>끝까지 결함을 추적해내는 개발자의 집요함</strong>으로 이어졌습니다.
                                     </p>
                                 </div>
-                                 <!-- Realistic Silver Medal SVG -->
                                  <div class="flex-shrink-0 w-16 flex justify-center items-center relative transform group-hover:scale-110 transition-transform duration-300">
                                     <svg width="56" height="56" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));">
                                          <defs>
@@ -888,10 +950,8 @@
                                                 <stop offset="100%" style="stop-color:#FFFFFF" />
                                             </linearGradient>
                                         </defs>
-                                        
                                         <path d="M25 0 L50 35 L75 0 V15 L50 50 L25 15 Z" fill="#DC2626"/>
                                         <path d="M25 0 L30 0 L50 28 L70 0 L75 0" fill="#B91C1C"/>
-
                                         <circle cx="50" cy="60" r="28" fill="url(#silverBody3)" stroke="#475569" stroke-width="2"/>
                                         <circle cx="50" cy="60" r="22" fill="none" stroke="url(#silverInner3)" stroke-width="3" opacity="0.6"/>
                                          <text x="50" y="68" font-family="serif" font-weight="bold" font-size="24" fill="#475569" text-anchor="middle" style="filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.8));">2</text>
@@ -903,7 +963,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Personal Strength -->
                 <div class="bg-orange-50 rounded-2xl border-l-4 border-orange-500 p-8 shadow-sm mt-4 keep-together">
                     <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4">
                         <i data-lucide="flame" class="text-orange-600"></i> Strength: Mental Toughness
